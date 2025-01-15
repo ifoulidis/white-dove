@@ -75,7 +75,7 @@
 >
   <div class="m-auto flex h-max flex-col p-4 lg:w-1/2" id="sevices">
     <h1 class="my-6 flex justify-center text-[3rem] font-bold text-gray-900">Services</h1>
-    <IntersectionObserver element={servicesRef} bind:intersecting={intersecting.services}>
+    <IntersectionObserver once element={servicesRef} bind:intersecting={intersecting.services}>
       <div class="mx-auto mt-auto grid grid-cols-2 gap-4" bind:this={servicesRef}>
         {#if intersecting.services}
           <div
@@ -146,7 +146,7 @@
     style="background-image: url('/images/ai-kitchen.jpg');"
   ></div>
   <!-- Quote Details Section -->
-  <IntersectionObserver element={quoteRef} bind:intersecting={intersecting.quote}>
+  <IntersectionObserver once element={quoteRef} bind:intersecting={intersecting.quote}>
     <div
       class="min-h-30 h-max bg-[#ABE1FA] p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
       id="quote"
