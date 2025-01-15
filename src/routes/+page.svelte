@@ -27,7 +27,7 @@
   bind:innerWidth={windowWidth}
 />
 
-<section class="overflow-x-hidden bg-white pb-12 md:py-12">
+<section class="overflow-hidden bg-white pb-12 md:py-12">
   <!-- Hero Section -->
   <div
     class="mb-10 flex h-[670px] w-full flex-col-reverse items-center justify-evenly gap-8 md:h-max md:max-h-screen lg:mx-auto lg:flex-row lg:pb-[10rem]"
@@ -42,7 +42,7 @@
           Experience
         </h1>
         <h3 class="text-lg text-gray-500">
-          Levelling up homes and businesses in Matamata for 25 years
+          Making homes and businesses shine in Matamata for 25 years!
         </h3>
       </div>
 
@@ -135,7 +135,9 @@
   </div>
 </section>
 
-<section class="relative flex w-full flex-col py-20 lg:mt-20 lg:h-[75vh] lg:flex-row">
+<section
+  class="relative flex w-full flex-col overflow-hidden py-20 lg:mt-20 lg:h-[75vh] lg:flex-row"
+>
   <div
     class="h-[50vh] w-full bg-cover bg-center lg:h-auto lg:w-1/2"
     style="background-image: url('/images/ai-kitchen.jpg');"
@@ -155,8 +157,10 @@
         <p class="pb-3" transition:fade={{ delay: 300 }}>
           Our quotes are free, detailed, and don't leave any hidden costs.
         </p>
-        <a class="flex gap-2 text-white" href="tel:+642106061821" transition:fade={{ delay: 300 }}
-          ><MobilePhoneSolid size="lg" /> 02106061821</a
+        <a
+          class="flex gap-2 font-semibold"
+          href="tel:+642106061821"
+          transition:fade={{ delay: 300 }}><MobilePhoneSolid size="lg" /> 0276061821</a
         >
       {/if}
     </div>
