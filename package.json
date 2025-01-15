@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@fontsource/libre-baskerville": "^5.1.1",
+    "@sveltejs/adapter-vercel": "^5.5.2",
     "svelte-sonner": "^0.3.28",
     "tippy.js": "^6.3.7",
     "uuid": "^10.0.0",
