@@ -148,7 +148,7 @@
   <!-- Quote Details Section -->
   <IntersectionObserver once element={quoteRef} bind:intersecting={intersecting.quote}>
     <div
-      class="min-h-30 h-max bg-[#ABE1FA] p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
+      class="h-max bg-[#ABE1FA] p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
       id="quote"
       bind:this={quoteRef}
     >
