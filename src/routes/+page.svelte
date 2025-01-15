@@ -85,7 +85,7 @@
 <section class="relative mt-20 flex h-[75vh] w-full flex-col py-20 lg:flex-row">
   <div
     class="w-full bg-cover bg-center lg:w-1/2"
-    style="background-image: url('/src/lib/images/ai-kitchen.jpg');"
+    style="background-image: url('../lib/images/ai-image.jpg');"
   ></div>
   <!-- Quote Details Section -->
   <div class="mt-10 h-max bg-[#ABE1FA] p-8 text-gray-600 lg:w-1/2 lg:justify-start" id="quote">

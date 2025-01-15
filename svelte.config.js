@@ -7,7 +7,7 @@ const config = {
 
   kit: {
     adapter: adapter({
-      runtime: 'nodejs22.18',
+      runtime: 'nodejs22.x',
     }),
 
     alias: {
