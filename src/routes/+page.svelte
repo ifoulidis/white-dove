@@ -1,8 +1,6 @@
 <script lang="ts">
   import TestimonialCard from '$lib/components/TestimonialCard.svelte'
   import Dad from '$lib/images/Dad1.jpg?enhanced'
-  import Dad2 from '$lib/images/Dad2.jpg?enhanced'
-  import Dad3 from '$lib/images/Dad3.jpg?enhanced'
   import Painting from '$lib/images/ai-image.jpg?enhanced'
   import { Button } from 'flowbite-svelte'
   import { MobilePhoneSolid } from 'flowbite-svelte-icons'
@@ -12,6 +10,7 @@
 
   let scroll = $state(0)
   let windowHeight = $state(0)
+  let windowWidth = $state(0)
   let scrollProportion = $derived(windowHeight && scroll ? scroll / windowHeight : 0)
   $inspect(scrollProportion)
   let servicesRef: HTMLElement | null | undefined = $state()
@@ -22,15 +21,19 @@
   })
 </script>
 
-<svelte:window bind:scrollY={scroll} bind:innerHeight={windowHeight} />
+<svelte:window
+  bind:scrollY={scroll}
+  bind:innerHeight={windowHeight}
+  bind:innerWidth={windowWidth}
+/>
 
-<section class="overflow-x-hidden bg-white px-8 py-12">
+<section class="overflow-x-hidden bg-white pb-12 md:py-12">
   <!-- Hero Section -->
   <div
-    class="mb-10 flex h-[670px] flex-col-reverse items-center justify-between gap-8 md:h-max md:max-h-screen lg:mx-auto lg:max-w-[70%] lg:flex-row lg:pb-[10rem]"
+    class="mb-10 flex h-[670px] w-full flex-col-reverse items-center justify-evenly gap-8 md:h-max md:max-h-screen lg:mx-auto lg:flex-row lg:pb-[10rem]"
   >
     <!-- Text Content -->
-    <div class="h-1/3 space-y-10 text-left md:h-max lg:h-full">
+    <div class="h-1/2 space-y-10 px-8 text-left md:h-max lg:ml-auto lg:h-full lg:w-1/3">
       <div class="hero-title text-4xl md:text-[3rem] lg:space-y-8 lg:text-[4rem]">
         <h1 class="font-bold text-gray-500 md:text-left" transition:fade={{ delay: 300 }}>
           Excellence &
@@ -50,24 +53,12 @@
       </div>
     </div>
     <!-- Image -->
-    <div class="relative h-2/3 w-full lg:h-[70vh] lg:w-1/2 lg:px-5">
+    <div class="h-auto lg:h-[70vh] lg:w-1/2 lg:px-5">
       <enhanced:img
-        style:transform="translateX({-(scrollProportion * 50)}px)"
+        style:transform="translateX({windowWidth > 760 ? scrollProportion * 50 : 0}px)"
         src={Dad}
         alt="Phillip painting a door"
-        class="hero-img-1 absolute -left-5 bottom-0 z-20 mx-auto rounded-lg shadow-lg lg:left-0"
-      />
-      <enhanced:img
-        style:transform="translateX({scrollProportion * 50}px)"
-        src={Dad2}
-        alt="Phillip painting a door"
-        class="hero-img-2 absolute top-0 ml-[20%] rounded-lg shadow-lg md:top-10"
-      />
-      <enhanced:img
-        style:transform="translateY({-(scrollProportion * 50)}px)"
-        src={Dad3}
-        alt="Phillip painting a door"
-        class="hero-img-3 absolute bottom-10 z-10 ml-[40%] rounded-lg shadow-lg"
+        class="hero-img-1 mx-auto h-full shadow-lg lg:rounded-br-[25%] lg:rounded-tl-[25%]"
       />
     </div>
   </div>
@@ -144,7 +135,7 @@
   </div>
 </section>
 
-<section class="relative mt-20 flex w-full flex-col py-20 lg:h-[75vh] lg:flex-row">
+<section class="relative flex w-full flex-col py-20 lg:mt-20 lg:h-[75vh] lg:flex-row">
   <div
     class="h-[50vh] w-full bg-cover bg-center lg:h-auto lg:w-1/2"
     style="background-image: url('/images/ai-kitchen.jpg');"
@@ -195,23 +186,7 @@
 
 <style>
   .hero-img-1 {
-    max-height: 70%;
+    max-height: 100%;
     width: var(--size);
-  }
-  .hero-img-2,
-  .hero-img-3 {
-    max-height: 50%;
-    width: var(--size);
-  }
-  @media screen and (max-width: 760px) {
-    .hero-img-1 {
-      max-height: 300px;
-      width: var(--size);
-    }
-    .hero-img-2,
-    .hero-img-3 {
-      max-height: 200px;
-      width: var(--size);
-    }
   }
 </style>
