@@ -28,5 +28,6 @@
     font-family: 'Libre Baskerville', serif;
     scroll-behavior: smooth;
     --webkit-scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 </style>
