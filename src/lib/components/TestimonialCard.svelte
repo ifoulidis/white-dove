@@ -4,7 +4,10 @@
   let { author, highlight, quote } = $props()
 </script>
 
-<div class="flex flex-col items-center justify-between px-5" transition:fade>
+<div
+  class="flex flex-col items-center justify-between border-2 border-gray-200 p-5"
+  transition:fade
+>
   <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400">
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
       {highlight}

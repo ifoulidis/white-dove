@@ -16,9 +16,8 @@
   >
   <NavHamburger />
   <NavUl activeClass="text-brand">
-    <NavLi href="/about" class="hover:text-brand px-7 text-xl">About</NavLi>
-    <NavLi href="/#quote" class="hover:text-brand px-7 text-xl">Get a Quote</NavLi>
-    <NavLi href="tel:+642106061821" class="hover:text-brand px-7 text-xl">0216061821</NavLi>
+    <!-- <NavLi href="/about" class="px-7 text-xl hover:text-brand">About</NavLi> -->
+    <NavLi href="tel:+642106061821" class="px-7 text-xl hover:text-brand">0216061821</NavLi>
   </NavUl>
 </Navbar>
 
@@ -27,5 +26,7 @@
 <style>
   :global(body) {
     font-family: 'Libre Baskerville', serif;
+    scroll-behavior: smooth;
+    --webkit-scroll-behavior: smooth;
   }
 </style>
