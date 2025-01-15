@@ -1,9 +1,9 @@
 <script>
   import TestimonialCard from '$lib/components/TestimonialCard.svelte'
-  import Dad from '$lib/images/Dad1.jpg?enhanced'
-  import Dad2 from '$lib/images/Dad2.jpg?enhanced'
-  import Dad3 from '$lib/images/Dad3.jpg?enhanced'
-  import Painting from '$lib/images/ai-image.jpg?enhanced'
+  import Dad from 'static/images/Dad1.jpg?enhanced'
+  import Dad2 from 'static/images/Dad2.jpg?enhanced'
+  import Dad3 from 'static/images/Dad3.jpg?enhanced'
+  import Painting from 'static/images/ai-image.jpg?enhanced'
   import { Button, Card } from 'flowbite-svelte'
   import { CalendarMonthSolid, MobilePhoneSolid } from 'flowbite-svelte-icons'
 </script>
@@ -85,7 +85,7 @@
 <section class="relative mt-20 flex h-[75vh] w-full flex-col py-20 lg:flex-row">
   <div
     class="w-full bg-cover bg-center lg:w-1/2"
-    style="background-image: url('src/lib/images/ai-kitchen.jpg');"
+    style="background-image: url('/images/ai-kitchen.jpg');"
   ></div>
   <!-- Quote Details Section -->
   <div class="mt-10 h-max bg-[#ABE1FA] p-8 text-gray-600 lg:w-1/2 lg:justify-start" id="quote">
