@@ -11,8 +11,8 @@
   import IntersectionObserver from 'svelte-intersection-observer'
 
   let scroll = $state(0)
-  let windowSize = $state(0)
-  let scrollProportion = $derived(windowSize && scroll ? scroll / windowSize : 0)
+  let windowHeight = $state(0)
+  let scrollProportion = $derived(windowHeight && scroll ? scroll / windowHeight : 0)
   $inspect(scrollProportion)
   let servicesRef: HTMLElement | null | undefined = $state()
   let quoteRef: HTMLElement | null | undefined = $state()
@@ -22,19 +22,23 @@
   })
 </script>
 
-<svelte:window bind:scrollY={scroll} bind:innerHeight={windowSize} />
+<svelte:window bind:scrollY={scroll} bind:innerHeight={windowHeight} />
 
 <section class="overflow-x-hidden bg-white px-8 py-12">
   <!-- Hero Section -->
   <div
-    class="mb-10 flex max-h-screen flex-col-reverse items-center gap-8 lg:mx-auto lg:max-w-[70%] lg:flex-row lg:pb-[10rem]"
+    class="mb-10 flex h-[670px] flex-col-reverse items-center justify-between gap-8 md:h-max md:max-h-screen lg:mx-auto lg:max-w-[70%] lg:flex-row lg:pb-[10rem]"
   >
     <!-- Text Content -->
-    <div class="space-y-10 text-left lg:w-1/2">
-      <div class="hero-title text-[3rem] font-bold lg:text-[4rem]">
-        <h1 class="text-secondary" transition:fade={{ delay: 300 }}>Excellence &</h1>
-        <h1 class="-mt-5 ml-5 text-brand" transition:fade={{ delay: 500 }}>Experience</h1>
-        <h3 class="text-lg text-secondary">
+    <div class="h-1/3 space-y-10 text-left md:h-max lg:h-full">
+      <div class="hero-title text-4xl md:text-[3rem] lg:space-y-8 lg:text-[4rem]">
+        <h1 class="font-bold text-gray-500 md:text-left" transition:fade={{ delay: 300 }}>
+          Excellence &
+        </h1>
+        <h1 class="mb-4 ml-2 mt-2 text-brand md:ml-5 md:text-left" transition:fade={{ delay: 500 }}>
+          Experience
+        </h1>
+        <h3 class="text-lg text-gray-500">
           Levelling up homes and businesses in Matamata for 25 years
         </h3>
       </div>
@@ -46,7 +50,7 @@
       </div>
     </div>
     <!-- Image -->
-    <div class="relative h-[50vh] w-full lg:h-[70vh] lg:w-1/2 lg:px-5">
+    <div class="relative h-2/3 w-full lg:h-[70vh] lg:w-1/2 lg:px-5">
       <enhanced:img
         style:transform="translateX({-(scrollProportion * 50)}px)"
         src={Dad}
@@ -57,7 +61,7 @@
         style:transform="translateX({scrollProportion * 50}px)"
         src={Dad2}
         alt="Phillip painting a door"
-        class="hero-img-2 absolute top-10 ml-[20%] rounded-lg shadow-lg"
+        class="hero-img-2 absolute top-0 ml-[20%] rounded-lg shadow-lg md:top-10"
       />
       <enhanced:img
         style:transform="translateY({-(scrollProportion * 50)}px)"
