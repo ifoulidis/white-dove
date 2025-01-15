@@ -3,7 +3,7 @@
   import Dad from '$lib/images/Dad1.jpg?enhanced'
   import Dad2 from '$lib/images/Dad2.jpg?enhanced'
   import Dad3 from '$lib/images/Dad3.jpg?enhanced'
-  import Painting from '/images/ai-image.jpg?enhanced'
+  import Painting from '$lib/images/ai-image.jpg?enhanced'
   import { Button, Card } from 'flowbite-svelte'
   import { CalendarMonthSolid, MobilePhoneSolid } from 'flowbite-svelte-icons'
 </script>
