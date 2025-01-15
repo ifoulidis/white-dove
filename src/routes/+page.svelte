@@ -58,7 +58,7 @@
         style:transform="translateX({windowWidth > 760 ? scrollProportion * 50 : 0}px)"
         src={Dad}
         alt="Phillip painting a door"
-        class="hero-img-1 mx-auto h-full shadow-lg lg:rounded-br-[25%] lg:rounded-tl-[25%]"
+        class="hero-img-1 mx-auto h-full shadow-lg lg:rounded-bl-lg lg:rounded-br-[25%] lg:rounded-tl-[25%] lg:rounded-tr-lg"
       />
     </div>
   </div>
