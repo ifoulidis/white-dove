@@ -170,19 +170,18 @@
   <h1 class="mb-10 text-center text-4xl text-gray-900">What Clients Say...</h1>
   <div class="mx-auto flex w-4/5 flex-col gap-10 lg:grid lg:grid-cols-3 lg:gap-2">
     <TestimonialCard
-      highlight="Absolutely thrilled with the results!"
-      quote="Absolutely thrilled with the results! The team was professional, efficient, and left
-              my home looking brand new. Highly recommend!"
+      highlight="Dolor sit cillum eiusmod laboris aute."
+      quote="lorem "
       author="Bonnie Green"
     />
     <TestimonialCard
       highlight="The quality speaks for itself."
-      quote="Great service from start to finish. They worked quickly, kept everything clean, and the quality speaks for itself."
+      quote="Magna irure occaecat incididunt ad."
       author="Michael L."
     />
     <TestimonialCard
       highlight="The workmanship is top-notch."
-      quote="I never thought my old living room could look this good. The colors they helped me choose are perfect, and the workmanship is top-notch."
+      quote="Aliquip veniam sit non fugiat aliqua occaecat enim."
       author="Emily R."
     />
   </div>
