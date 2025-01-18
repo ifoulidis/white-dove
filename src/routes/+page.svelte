@@ -170,19 +170,19 @@
   <h1 class="mb-10 text-center text-4xl text-gray-900">What Clients Say...</h1>
   <div class="mx-auto flex w-4/5 flex-col gap-10 lg:grid lg:grid-cols-3 lg:gap-2">
     <TestimonialCard
-      highlight="Dolor sit cillum eiusmod laboris aute."
-      quote="lorem "
-      author="Bonnie Green"
+      highlight="Great paint job."
+      quote="Great paint job. Top class!"
+      author="Helen R."
     />
     <TestimonialCard
       highlight="The quality speaks for itself."
-      quote="Magna irure occaecat incididunt ad."
-      author="Michael L."
+      quote="Top class workmanship of painting job on our new house!"
+      author="Keith Bell"
     />
     <TestimonialCard
-      highlight="The workmanship is top-notch."
-      quote="Aliquip veniam sit non fugiat aliqua occaecat enim."
-      author="Emily R."
+      highlight="Highly recommended!"
+      quote="Highly recommended! Painted the exterior and interior of our house."
+      author="Judith Peacock"
     />
   </div>
 </section>
