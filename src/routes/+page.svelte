@@ -16,9 +16,11 @@
   $inspect(scrollProportion)
   let servicesRef: HTMLElement | null | undefined = $state()
   let quoteRef: HTMLElement | null | undefined = $state()
-  let intersecting: { services: boolean; quote: boolean } = $state({
+  let testimonialRef: HTMLElement | null | undefined = $state()
+  let intersecting: { services: boolean; quote: boolean; testimonial: boolean } = $state({
     services: false,
     quote: false,
+    testimonial: false,
   })
 </script>
 
@@ -186,23 +188,31 @@
   </div>
 </section>
 <section class="bg-white px-8 py-20">
-  <h1 class="mb-10 text-center text-4xl text-gray-900">What Clients Say...</h1>
-  <div class="mx-auto flex w-4/5 flex-col gap-10 lg:grid lg:grid-cols-3 lg:gap-2">
-    <TestimonialCard
-      highlight="Great paint job"
-      quote="Great paint job. Top class!"
-      author="Helen R."
-    />
-    <TestimonialCard
-      highlight="Top class workmanship"
-      quote="Top class workmanship of painting job on our new house!"
-      author="Keith Bell"
-    />
-    <TestimonialCard
-      highlight="Highly recommended!"
-      quote="Highly recommended! Painted the exterior and interior of our house."
-      author="Judith Peacock"
-    />
+  <h1 class="mb-10 text-center text-4xl text-[#23b7e4]">What Clients Say...</h1>
+  <IntersectionObserver once element={testimonialRef} bind:intersecting={intersecting.testimonial}>
+    <div></div>
+  </IntersectionObserver>
+  <div
+    class="mx-auto flex w-4/5 flex-col gap-10 lg:grid lg:grid-cols-3 lg:gap-2"
+    bind:this={testimonialRef}
+  >
+    {#if intersecting.testimonial}
+      <TestimonialCard
+        highlight="Great paint job"
+        quote="Great paint job. Top class!"
+        author="Helen R."
+      />
+      <TestimonialCard
+        highlight="Top class workmanship"
+        quote="Top class workmanship of painting job on our new house!"
+        author="Keith Bell"
+      />
+      <TestimonialCard
+        highlight="Highly recommended!"
+        quote="Highly recommended! Painted the exterior and interior of our house."
+        author="Judith Peacock"
+      />
+    {/if}
   </div>
 </section>
 

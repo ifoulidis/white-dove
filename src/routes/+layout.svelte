@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css'
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte'
-  import Logo from '$lib/images/new-logo.png'
+  import Logo from '$lib/images/F-resized.png'
   import '@fontsource/libre-baskerville'
 
   let { children } = $props()
@@ -9,7 +9,7 @@
 
 <Navbar class="sticky start-0 top-0 z-50 w-full border-b px-2 py-2.5 sm:px-4">
   <NavBrand href="/">
-    <img src={Logo} alt="Company logo of a dove." width={300} height={150} />
+    <img src={Logo} alt="Company logo of a dove." width={250} height={125} />
   </NavBrand>
   <NavHamburger />
   <NavUl activeClass="text-brand">
