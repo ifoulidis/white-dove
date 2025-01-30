@@ -1,6 +1,7 @@
 <script lang="ts">
   import TestimonialCard from '$lib/components/TestimonialCard.svelte'
   import Dad from '$lib/images/Dad1.jpg?enhanced'
+  import FB from '$lib/images/messenger.png'
   import Painting from '$lib/images/ai-image.jpg?enhanced'
   import { Button } from 'flowbite-svelte'
   import { MobilePhoneSolid } from 'flowbite-svelte-icons'
@@ -27,13 +28,13 @@
   bind:innerWidth={windowWidth}
 />
 
-<section class="overflow-hidden bg-white pb-12 md:py-12">
+<section class="bg-white pb-12 md:py-12">
   <!-- Hero Section -->
   <div
-    class="mb-10 flex h-[670px] w-full flex-col-reverse items-center justify-evenly gap-8 md:h-max md:max-h-screen lg:mx-auto lg:flex-row lg:pb-[10rem]"
+    class="mb-10 flex min-h-[670px] w-full flex-col-reverse items-center justify-evenly gap-8 lg:mx-auto lg:flex-row lg:pb-[10rem]"
   >
     <!-- Text Content -->
-    <div class="h-1/2 space-y-10 px-8 text-left md:h-max lg:ml-auto lg:h-full lg:w-1/3">
+    <div class="h-1/2 space-y-10 px-8 text-left md:h-max lg:ml-auto lg:h-full lg:w-2/5">
       <div class="hero-title text-4xl md:text-[3rem] lg:space-y-8 lg:text-[4rem]">
         <h1 class="font-bold text-gray-500 md:text-left" transition:fade={{ delay: 300 }}>
           Excellence &
@@ -47,7 +48,7 @@
       </div>
 
       <div class="flex justify-end">
-        <Button href="#quote" class="bg-brand px-6 py-3 text-lg text-white hover:bg-blue-600"
+        <Button href="#quote" class="bg-brand px-6 py-3 text-lg text-white hover:bg-[#55b2fd]"
           >Book a Quote</Button
         >
       </div>
@@ -136,7 +137,7 @@
 </section>
 
 <section
-  class="relative flex w-full flex-col overflow-hidden py-20 lg:mt-20 lg:h-[75vh] lg:flex-row"
+  class="scroll-p-200 relative flex w-full snap-y flex-col py-20 lg:mt-20 lg:h-[75vh] lg:flex-row"
 >
   <div
     class="h-[50vh] w-full bg-cover bg-center lg:h-auto lg:w-1/2"
@@ -144,27 +145,45 @@
   ></div>
   <!-- Quote Details Section -->
   <IntersectionObserver once element={quoteRef} bind:intersecting={intersecting.quote}>
-    <div
-      class="h-max bg-[#ABE1FA] p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
-      id="quote"
-      bind:this={quoteRef}
-    >
-      {#if intersecting.quote}
-        <h1 class="pb-3 text-4xl font-bold" transition:fly={{ x: 300, delay: 100 }}>
-          Ready to Make It Beautiful?
+    <div></div>
+  </IntersectionObserver>
+  <div
+    class=" h-max bg-gray-100 p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
+    id="quote"
+    bind:this={quoteRef}
+  >
+    {#if intersecting.quote}
+      <h1 class="pb-4 text-4xl italic" transition:fly={{ x: 300, delay: 100, duration: 500 }}>
+        Ready to <span class="text-brand">Make It Beautiful</span>?
+      </h1>
+      <div class="pl-2">
+        <h1
+          class="text-semibold flex gap-1 pb-3 text-xl"
+          transition:fly={{ x: -300, duration: 500 }}
+        >
+          Request a Quote!
         </h1>
-        <h1 class="flex gap-1 pb-3 text-xl" transition:fly={{ x: -300 }}>Book a quote today</h1>
-        <p class="pb-3" transition:fade={{ delay: 300 }}>
+        <p class="pb-2" transition:fade={{ delay: 300, duration: 500 }}>
           Our quotes are free, detailed, and don't leave any hidden costs.
         </p>
-        <a
-          class="flex gap-2 font-semibold"
-          href="tel:+642106061821"
-          transition:fade={{ delay: 300 }}><MobilePhoneSolid size="lg" /> 0276061821</a
-        >
-      {/if}
-    </div>
-  </IntersectionObserver>
+        <div class="flex w-fit flex-col gap-2 md:w-full md:flex-row">
+          <a
+            class="flex gap-2 p-0"
+            href="http://m.me/WhiteDoveMatamata"
+            transition:fade={{ delay: 350, duration: 500 }}
+            ><img src={FB} width={24} height={24} alt="Facebook logo" class="h-[24] w-[24]" /> Contact
+            Us On Messenger</a
+          >
+          <a
+            class="decoration flex gap-2 p-0 underline decoration-brand underline-offset-4"
+            href="tel:+642106061821"
+            transition:fade={{ delay: 400, duration: 500 }}
+            ><MobilePhoneSolid size="lg" color="#23b7e4" /> 0276061821</a
+          >
+        </div>
+      </div>
+    {/if}
+  </div>
 </section>
 <section class="bg-white px-8 py-20">
   <h1 class="mb-10 text-center text-4xl text-gray-900">What Clients Say...</h1>
@@ -186,6 +205,12 @@
     />
   </div>
 </section>
+
+<footer class="flex min-h-20 items-center justify-center bg-gray-50 text-black">
+  <a href="http://ifoulidis.vercel.app" target="_blank" rel="noopener noreferrer">
+    <h3>Created by <span class="text-[#23b7e4]">Isaiah Foulidis</span></h3>
+  </a>
+</footer>
 
 <style>
   .hero-img-1 {

@@ -23,7 +23,7 @@ export default {
           800: '#CC4522',
           900: '#A5371B',
         },
-        brand: '#38b6ff',
+        brand: '#84c7dc',
         secondary: '#A9A9A9',
       },
     },
