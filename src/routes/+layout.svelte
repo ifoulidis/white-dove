@@ -25,7 +25,6 @@
     font-family: 'Libre Baskerville', serif;
     scroll-behavior: smooth;
     --webkit-scroll-behavior: smooth;
-    overflow-x: hidden;
     scroll-margin-top: 200px;
   }
 </style>

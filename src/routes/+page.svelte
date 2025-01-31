@@ -144,29 +144,29 @@
   <div
     class="h-[50vh] w-full bg-cover bg-center lg:h-auto lg:w-1/2"
     style="background-image: url('/images/ai-kitchen.jpg');"
-    id="quote"
   ></div>
   <!-- Quote Details Section -->
   <IntersectionObserver once element={quoteRef} bind:intersecting={intersecting.quote}>
     <div></div>
   </IntersectionObserver>
   <div
-    class=" h-max bg-gray-100 p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
+    class="h-max min-h-[250px] scroll-m-[180px] bg-gray-100 p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
+    id="quote"
     bind:this={quoteRef}
   >
     {#if intersecting.quote}
-      <h1 class="pb-4 text-4xl italic" transition:fly={{ x: 300, delay: 100, duration: 500 }}>
+      <h1 class="pb-4 text-4xl italic" transition:fly={{ x: 100, duration: 500 }}>
         Ready to <span class="text-brand">Make It Beautiful</span>?
       </h1>
       <div class="mt-6 pl-2">
-        <p class="pb-2" transition:fade={{ delay: 300, duration: 500 }}>
+        <p class="pb-2" transition:fade={{ delay: 100, duration: 500 }}>
           Our quotes are free, detailed, and don't leave any hidden costs.
         </p>
         <div class="mt-5 flex w-fit flex-col gap-3 md:mt-2 md:w-full md:flex-row md:gap-8">
           <a
             class="flex gap-2 p-0"
             href="http://m.me/WhiteDoveMatamata"
-            transition:fade={{ delay: 350, duration: 500 }}
+            transition:fade={{ delay: 240, duration: 500 }}
             ><img src={FB} width={24} height={24} alt="Facebook logo" class="h-[24] w-[24]" /> Contact
             Us On Messenger</a
           >
