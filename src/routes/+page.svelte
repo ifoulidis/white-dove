@@ -78,7 +78,7 @@
         {#if intersecting.services}
           <div
             transition:fade={{ delay: 100 }}
-            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
             <h2 class="mb-3 text-xl font-semibold text-gray-700">Commercial and Residential</h2>
             <p class="text-sm text-gray-500">
@@ -87,7 +87,7 @@
           </div>
           <div
             transition:fade={{ delay: 200 }}
-            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
             <h2 class="mb-3 text-xl font-semibold text-gray-700">Interior and Exterior Painting</h2>
             <p class="text-sm text-gray-500">
@@ -96,16 +96,16 @@
           </div>
           <div
             transition:fade={{ delay: 300 }}
-            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
             <h2 class="mb-3 text-xl font-semibold text-gray-700">Spraying</h2>
             <p class="text-sm text-gray-500">
-              Efficient and even paint application for any surface.
+              Efficient and even paint application for new builds, roofs, etc.
             </p>
           </div>
           <div
             transition:fade={{ delay: 400 }}
-            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
             <h2 class="mb-3 text-xl font-semibold text-gray-700">Wallpapering</h2>
             <p class="text-sm text-gray-500">
@@ -114,18 +114,18 @@
           </div>
           <div
             transition:fade={{ delay: 500 }}
-            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Low-Dust Sanding System</h2>
+            <h2 class="mb-3 text-xl font-semibold text-gray-700">Low-Dust Sanding</h2>
             <p class="text-sm text-gray-500">Minimizing mess during surface preparation.</p>
           </div>
           <div
             transition:fade={{ delay: 600 }}
-            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Plastering</h2>
+            <h2 class="mb-3 text-xl font-semibold text-gray-700">Plaster Repair</h2>
             <p class="text-sm text-gray-500">
-              Smooth and seamless plastering for walls and ceilings.
+              When you need a little plastering, White Dove has you sorted.
             </p>
           </div>
         {/if}
@@ -144,6 +144,7 @@
   <div
     class="h-[50vh] w-full bg-cover bg-center lg:h-auto lg:w-1/2"
     style="background-image: url('/images/ai-kitchen.jpg');"
+    id="quote"
   ></div>
   <!-- Quote Details Section -->
   <IntersectionObserver once element={quoteRef} bind:intersecting={intersecting.quote}>
@@ -151,24 +152,17 @@
   </IntersectionObserver>
   <div
     class=" h-max bg-gray-100 p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
-    id="quote"
     bind:this={quoteRef}
   >
     {#if intersecting.quote}
       <h1 class="pb-4 text-4xl italic" transition:fly={{ x: 300, delay: 100, duration: 500 }}>
         Ready to <span class="text-brand">Make It Beautiful</span>?
       </h1>
-      <div class="pl-2">
-        <h1
-          class="text-semibold flex gap-1 pb-3 text-xl"
-          transition:fly={{ x: -300, duration: 500 }}
-        >
-          Request a Quote!
-        </h1>
+      <div class="mt-6 pl-2">
         <p class="pb-2" transition:fade={{ delay: 300, duration: 500 }}>
           Our quotes are free, detailed, and don't leave any hidden costs.
         </p>
-        <div class="flex w-fit flex-col gap-2 md:w-full md:flex-row">
+        <div class="mt-5 flex w-fit flex-col gap-3 md:mt-2 md:w-full md:flex-row md:gap-8">
           <a
             class="flex gap-2 p-0"
             href="http://m.me/WhiteDoveMatamata"
@@ -187,8 +181,8 @@
     {/if}
   </div>
 </section>
-<section class="bg-white px-8 py-20">
-  <h1 class="mb-10 text-center text-4xl text-[#23b7e4]">What Clients Say...</h1>
+<section class="mb-20 bg-white px-8 lg:mt-20">
+  <h1 class="mb-10 text-center text-4xl text-gray-700">What Clients Say...</h1>
   <IntersectionObserver once element={testimonialRef} bind:intersecting={intersecting.testimonial}>
     <div></div>
   </IntersectionObserver>
@@ -198,17 +192,17 @@
   >
     {#if intersecting.testimonial}
       <TestimonialCard
-        highlight="Great paint job"
+        highlight="Great Paint Job!"
         quote="Great paint job. Top class!"
         author="Helen R."
       />
       <TestimonialCard
-        highlight="Top class workmanship"
+        highlight="Top Class Workmanship!"
         quote="Top class workmanship of painting job on our new house!"
         author="Keith Bell"
       />
       <TestimonialCard
-        highlight="Highly recommended!"
+        highlight="Highly Recommended!"
         quote="Highly recommended! Painted the exterior and interior of our house."
         author="Judith Peacock"
       />
@@ -218,7 +212,7 @@
 
 <footer class="flex min-h-20 items-center justify-center bg-gray-50 text-black">
   <a href="http://ifoulidis.vercel.app" target="_blank" rel="noopener noreferrer">
-    <h3>Created by <span class="text-[#23b7e4]">Isaiah Foulidis</span></h3>
+    <h3 class="text-gray-500">Created by <span class="text-[#84c7dc]">Isaiah Foulidis</span></h3>
   </a>
 </footer>
 
