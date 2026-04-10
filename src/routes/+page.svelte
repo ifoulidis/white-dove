@@ -156,7 +156,7 @@
   >
     {#if intersecting.quote}
       <h1 class="pb-4 text-4xl italic" transition:fly={{ x: 100, duration: 500 }}>
-        Ready to <span class="text-brand">Make It Beautiful</span>?
+        Ready to <span class="text-brand">Make It Shine</span>?
       </h1>
       <div class="mt-6 pl-2">
         <p class="pb-2" transition:fade={{ delay: 100, duration: 500 }}>
