@@ -14,7 +14,7 @@
   <NavHamburger />
   <NavUl activeClass="text-brand">
     <!-- <NavLi href="/about" class="px-7 text-xl hover:text-brand">About</NavLi> -->
-    <NavLi href="tel:+642106061821" class="px-7 text-xl hover:text-brand">0276061821</NavLi>
+    <NavLi href="tel:+64276061821" class="px-7 text-xl hover:text-brand">0276061821</NavLi>
   </NavUl>
 </Navbar>
 
