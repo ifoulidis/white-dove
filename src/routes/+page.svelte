@@ -67,10 +67,10 @@
     </div>
   </div>
 </section>
-<!-- Services Section -->
 
+<!-- Services Section -->
 <section
-  class="relative flex flex-col-reverse rounded-bl-full rounded-tr-full bg-gray-100 p-0 lg:flex-row-reverse lg:pr-8 lg:text-gray-600"
+  class="relative flex flex-col-reverse rounded-bl-full rounded-tr-[6000px] bg-gray-100 p-0 lg:flex-row-reverse lg:pr-8 lg:text-gray-600"
 >
   <div class="m-auto flex h-max flex-col p-4 lg:w-1/2" id="sevices">
     <h1 class="my-6 flex justify-center text-[3rem] font-bold text-gray-900">Services</h1>
