@@ -173,7 +173,7 @@
           >
           <a
             class="decoration flex gap-2 p-0 underline decoration-brand underline-offset-4"
-            href="tel:+642106061821"
+            href="tel:+64276061821"
             transition:fade={{ delay: 400, duration: 500 }}
             ><MobilePhoneSolid size="lg" color="#23b7e4" /> 0276061821</a
           >
