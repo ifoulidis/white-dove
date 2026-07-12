@@ -1,6 +1,7 @@
 <script lang="ts">
   import TestimonialCard from '$lib/components/TestimonialCard.svelte'
   import Dad from '$lib/images/Dad1.jpg?enhanced'
+  import DadAndAmos from '$lib/images/amos and dad not blurry.jpg?enhanced'
   import FB from '$lib/images/messenger.png'
   import Painting from '$lib/images/ai-image.jpg?enhanced'
   import { Button } from 'flowbite-svelte'
@@ -13,7 +14,7 @@
   let windowHeight = $state(0)
   let windowWidth = $state(0)
   let scrollProportion = $derived(windowHeight && scroll ? scroll / windowHeight : 0)
-  $inspect(scrollProportion)
+
   let servicesRef: HTMLElement | null | undefined = $state()
   let quoteRef: HTMLElement | null | undefined = $state()
   let testimonialRef: HTMLElement | null | undefined = $state()
@@ -37,7 +38,7 @@
   >
     <!-- Text Content -->
     <div class="h-1/2 space-y-10 px-8 text-left md:h-max lg:ml-auto lg:h-full lg:w-2/5">
-      <div class="hero-title text-4xl md:text-[3rem] lg:space-y-8 lg:text-[4rem]">
+      <div class="hero-title text-4xl md:text-[3rem] lg:space-y-8 lg:text-[3rem]">
         <h1 class="font-bold text-gray-500 md:text-left" transition:fade={{ delay: 300 }}>
           Excellence &
         </h1>
@@ -59,7 +60,7 @@
     <div class="h-auto lg:h-[70vh] lg:w-1/2 lg:px-5">
       <enhanced:img
         style:transform="translateX({windowWidth > 760 ? scrollProportion * 50 : 0}px)"
-        src={Dad}
+        src={DadAndAmos}
         alt="Phillip painting a door"
         class="hero-img-1 mx-auto h-full shadow-lg lg:rounded-bl-lg lg:rounded-br-[25%] lg:rounded-tl-[25%] lg:rounded-tr-lg"
       />
