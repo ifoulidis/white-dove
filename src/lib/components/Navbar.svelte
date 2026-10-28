@@ -1,20 +1,26 @@
 <script lang="ts">
-  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte'
   import Logo from '$lib/images/new-logo.png'
   import { PhoneSolid } from 'flowbite-svelte-icons'
 </script>
 
-<Navbar class="sticky start-0 top-0 z-50 w-full bg-gray-50 px-2 py-2.5 sm:px-4">
-  <NavBrand href="/">
-    <img src={Logo} alt="Company logo of a dove." width={250} height={125} />
-  </NavBrand>
-  <NavHamburger />
-  <NavUl activeClass="text-brand">
-    <!-- <NavLi href="/about" class="px-7 text-xl hover:text-brand">About</NavLi> -->
-    <NavLi
+<header class="sticky top-0 z-50 border-b border-gray-200/70 bg-white/90 backdrop-blur">
+  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
+    <a href="/" class="shrink-0">
+      <img
+        src={Logo}
+        alt="White Dove Professional Painting"
+        width={250}
+        height={125}
+        class="h-auto w-40 sm:w-48"
+      />
+    </a>
+    <a
       href="tel:+64276061821"
-      class="flex items-center gap-2 px-7 text-lg font-extralight hover:text-brand"
-      ><PhoneSolid class="text-brand" /> 0276061821</NavLi
+      class="inline-flex min-h-11 items-center gap-2 rounded-full border border-gray-200 px-4 text-sm font-medium text-gray-800 transition-colors hover:border-brand-dark hover:text-brand-dark"
     >
-  </NavUl>
-</Navbar>
+      <PhoneSolid class="h-4 w-4 text-brand-dark" />
+      <span class="sm:hidden">Call</span>
+      <span class="hidden sm:inline">027 606 1821</span>
+    </a>
+  </nav>
+</header>

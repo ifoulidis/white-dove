@@ -1,22 +1,17 @@
-<script>
-  import { fade } from 'svelte/transition'
+<script lang="ts">
+  import { reveal } from '$lib/actions/reveal'
 
-  let { author, highlight, quote } = $props()
+  let { author, highlight, quote, delay = 0 } = $props()
 </script>
 
-<div
-  class="flex flex-col items-center justify-between rounded-sm border-2 border-[#84c7dc] p-5"
-  transition:fade={{ delay: 300 }}
+<figure
+  class="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+  use:reveal={delay}
 >
-  <blockquote class="mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400">
-    <h3 class="text-center text-lg font-semibold text-gray-900">
-      {highlight}
-    </h3>
-    <p class="my-4 font-light italic">
-      "{quote}"
-    </p>
+  <span class="mb-2 font-serif text-5xl leading-none text-brand" aria-hidden="true">“</span>
+  <blockquote class="flex-1">
+    <p class="font-serif text-lg text-gray-900">{highlight}</p>
+    <p class="mt-2 leading-relaxed text-gray-600">“{quote}”</p>
   </blockquote>
-  <div class="flex items-center justify-center space-x-3 text-[#23b7e4] rtl:space-x-reverse">
-    <p>{author}</p>
-  </div>
-</div>
+  <figcaption class="mt-5 text-sm font-medium text-gray-500">— {author}</figcaption>
+</figure>

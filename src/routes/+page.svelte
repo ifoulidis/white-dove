@@ -1,28 +1,43 @@
 <script lang="ts">
+  import { reveal } from '$lib/actions/reveal'
+  import ScrollPanel from '$lib/components/ScrollPanel.svelte'
   import TestimonialCard from '$lib/components/TestimonialCard.svelte'
-  import Dad from '$lib/images/Dad1.jpg?enhanced'
   import DadAndAmos from '$lib/images/amos and dad not blurry.jpg?enhanced'
   import FB from '$lib/images/messenger.png'
   import Painting from '$lib/images/ai-image.jpg?enhanced'
-  import { Button } from 'flowbite-svelte'
   import { MobilePhoneSolid } from 'flowbite-svelte-icons'
-  import { fade, fly } from 'svelte/transition'
-  // import { animate, scroll } from 'motion'
-  import IntersectionObserver from 'svelte-intersection-observer'
 
   let scroll = $state(0)
   let windowHeight = $state(0)
   let windowWidth = $state(0)
   let scrollProportion = $derived(windowHeight && scroll ? scroll / windowHeight : 0)
 
-  let servicesRef: HTMLElement | null | undefined = $state()
-  let quoteRef: HTMLElement | null | undefined = $state()
-  let testimonialRef: HTMLElement | null | undefined = $state()
-  let intersecting: { services: boolean; quote: boolean; testimonial: boolean } = $state({
-    services: false,
-    quote: false,
-    testimonial: false,
-  })
+  const services = [
+    {
+      title: 'Commercial & Residential',
+      description: 'Comprehensive painting solutions for homes and businesses.',
+    },
+    {
+      title: 'Interior & Exterior Painting',
+      description: 'Expert painting services for both indoor and outdoor spaces.',
+    },
+    {
+      title: 'Spraying',
+      description: 'Efficient and even paint application for new builds, roofs, etc.',
+    },
+    {
+      title: 'Wallpapering',
+      description: 'Professional wallpaper installation for a polished finish.',
+    },
+    {
+      title: 'Low-Dust Sanding',
+      description: 'Minimising mess during surface preparation.',
+    },
+    {
+      title: 'Plaster Repair',
+      description: 'When you need a little plastering, White Dove has you sorted.',
+    },
+  ]
 </script>
 
 <svelte:window
@@ -31,195 +46,151 @@
   bind:innerWidth={windowWidth}
 />
 
-<section class="bg-white pb-12 md:py-12">
-  <!-- Hero Section -->
-  <div
-    class="mb-10 flex min-h-[670px] w-full flex-col-reverse items-center justify-evenly gap-8 lg:mx-auto lg:flex-row lg:pb-[10rem]"
-  >
-    <!-- Text Content -->
-    <div class="h-1/2 space-y-10 px-8 text-left md:h-max lg:ml-auto lg:h-full lg:w-2/5">
-      <div class="hero-title text-4xl md:text-[3rem] lg:space-y-8 lg:text-[3rem]">
-        <h1 class="font-bold text-gray-500 md:text-left" transition:fade={{ delay: 300 }}>
-          Excellence &
+<main class="space-y-8 pb-8 lg:space-y-12 lg:pb-12">
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 lg:pb-24 lg:pt-16">
+    <div class="flex flex-col gap-8 lg:flex-row-reverse lg:items-center lg:gap-16">
+      <div class="lg:w-1/2">
+        <enhanced:img
+          style:transform="translateX({windowWidth >= 1024 ? scrollProportion * 50 : 0}px)"
+          src={DadAndAmos}
+          alt="Phillip and Amos standing beside the White Dove van"
+          class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg lg:aspect-auto lg:rounded-bl-lg lg:rounded-br-[25%] lg:rounded-tl-[25%] lg:rounded-tr-lg"
+        />
+      </div>
+
+      <div class="lg:w-1/2">
+        <p class="eyebrow">Professional painting · Matamata</p>
+        <h1 class="mt-3 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+          Excellence &amp;<br />
+          <span class="font-normal italic text-brand-dark">Experience</span>
         </h1>
-        <h1 class="mb-4 ml-2 mt-2 text-brand md:ml-5 md:text-left" transition:fade={{ delay: 500 }}>
-          Experience
-        </h1>
-        <h3 class="text-lg text-gray-500">
-          Making homes and businesses shine in Matamata for 25 years!
-        </h3>
-      </div>
-
-      <div class="flex justify-end">
-        <Button href="#quote" class="bg-brand px-6 py-3 text-lg text-white hover:bg-[#55b2fd]"
-          >Book a Quote</Button
-        >
-      </div>
-    </div>
-    <!-- Image -->
-    <div class="h-auto lg:h-[70vh] lg:w-1/2 lg:px-5">
-      <enhanced:img
-        style:transform="translateX({windowWidth > 760 ? scrollProportion * 50 : 0}px)"
-        src={DadAndAmos}
-        alt="Phillip painting a door"
-        class="hero-img-1 mx-auto h-full shadow-lg lg:rounded-bl-lg lg:rounded-br-[25%] lg:rounded-tl-[25%] lg:rounded-tr-lg"
-      />
-    </div>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section
-  class="relative flex flex-col-reverse rounded-bl-full rounded-tr-[6000px] bg-gray-100 p-0 lg:flex-row-reverse lg:pr-8 lg:text-gray-600"
->
-  <div class="m-auto flex h-max flex-col p-4 lg:w-1/2" id="sevices">
-    <h1 class="my-6 flex justify-center text-[3rem] font-bold text-gray-900">Services</h1>
-    <IntersectionObserver once element={servicesRef} bind:intersecting={intersecting.services}>
-      <div class="mx-auto mt-auto grid grid-cols-2 gap-4" bind:this={servicesRef}>
-        {#if intersecting.services}
-          <div
-            transition:fade={{ delay: 100 }}
-            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Commercial and Residential</h2>
-            <p class="text-sm text-gray-500">
-              Comprehensive painting solutions for homes and businesses.
-            </p>
-          </div>
-          <div
-            transition:fade={{ delay: 200 }}
-            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Interior and Exterior Painting</h2>
-            <p class="text-sm text-gray-500">
-              Expert painting services for both indoor and outdoor spaces.
-            </p>
-          </div>
-          <div
-            transition:fade={{ delay: 300 }}
-            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Spraying</h2>
-            <p class="text-sm text-gray-500">
-              Efficient and even paint application for new builds, roofs, etc.
-            </p>
-          </div>
-          <div
-            transition:fade={{ delay: 400 }}
-            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Wallpapering</h2>
-            <p class="text-sm text-gray-500">
-              Professional wallpaper installation for a polished finish.
-            </p>
-          </div>
-          <div
-            transition:fade={{ delay: 500 }}
-            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Low-Dust Sanding</h2>
-            <p class="text-sm text-gray-500">Minimizing mess during surface preparation.</p>
-          </div>
-          <div
-            transition:fade={{ delay: 600 }}
-            class="flex flex-col justify-between rounded-lg bg-white p-4 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-          >
-            <h2 class="mb-3 text-xl font-semibold text-gray-700">Plaster Repair</h2>
-            <p class="text-sm text-gray-500">
-              When you need a little plastering, White Dove has you sorted.
-            </p>
-          </div>
-        {/if}
-      </div>
-    </IntersectionObserver>
-  </div>
-
-  <div class="mr-auto h-max p-0 lg:w-1/2">
-    <enhanced:img src={Painting} alt="Phillip painting a door" class="rounded-bl-full" />
-  </div>
-</section>
-
-<section
-  class="scroll-p-200 relative flex w-full snap-y flex-col py-20 lg:mt-20 lg:h-[75vh] lg:flex-row"
->
-  <div
-    class="h-[50vh] w-full bg-cover bg-center lg:h-auto lg:w-1/2"
-    style="background-image: url('/images/ai-kitchen.jpg');"
-  ></div>
-  <!-- Quote Details Section -->
-  <IntersectionObserver once element={quoteRef} bind:intersecting={intersecting.quote}>
-    <div></div>
-  </IntersectionObserver>
-  <div
-    class="h-max min-h-[250px] scroll-m-[180px] bg-gray-100 p-8 text-gray-600 lg:mt-10 lg:w-1/2 lg:justify-start"
-    id="quote"
-    bind:this={quoteRef}
-  >
-    {#if intersecting.quote}
-      <h1 class="pb-4 text-4xl italic" transition:fly={{ x: 100, duration: 500 }}>
-        Ready to <span class="text-brand">Make It Shine</span>?
-      </h1>
-      <div class="mt-6 pl-2">
-        <p class="pb-2" transition:fade={{ delay: 100, duration: 500 }}>
-          Our quotes are free, detailed, and don't leave any hidden costs.
+        <p class="mt-5 max-w-md text-lg leading-relaxed text-gray-600">
+          Making homes and businesses shine in Matamata for 25 years.
         </p>
-        <div class="mt-5 flex w-fit flex-col gap-3 md:mt-2 md:w-full md:flex-row md:gap-8">
-          <a
-            class="flex gap-2 p-0"
-            href="http://m.me/WhiteDoveMatamata"
-            transition:fade={{ delay: 240, duration: 500 }}
-            ><img src={FB} width={24} height={24} alt="Facebook logo" class="h-[24] w-[24]" /> Contact
-            Us On Messenger</a
-          >
-          <a
-            class="decoration flex gap-2 p-0 underline decoration-brand underline-offset-4"
-            href="tel:+64276061821"
-            transition:fade={{ delay: 400, duration: 500 }}
-            ><MobilePhoneSolid size="lg" color="#23b7e4" /> 0276061821</a
-          >
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#quote" class="btn-primary">Book a free quote</a>
+          <a href="tel:+64276061821" class="btn-secondary">
+            <MobilePhoneSolid class="h-5 w-5 text-brand-dark" />
+            027 606 1821
+          </a>
         </div>
       </div>
-    {/if}
-  </div>
-</section>
-<section class="mb-20 bg-white px-8 lg:mt-20">
-  <h1 class="mb-10 text-center text-4xl text-gray-700">What Clients Say...</h1>
-  <IntersectionObserver once element={testimonialRef} bind:intersecting={intersecting.testimonial}>
-    <div></div>
-  </IntersectionObserver>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="relative isolate overflow-x-clip py-16 lg:py-24">
+    <ScrollPanel from="left" />
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="lg:flex lg:items-end lg:justify-between lg:gap-12">
+        <div class="max-w-xl">
+          <p class="eyebrow">Services</p>
+          <h2 class="mt-3 text-2xl sm:text-3xl">What we can do for you</h2>
+        </div>
+        <p class="mt-3 max-w-md text-gray-600 lg:mt-0">
+          From a single room to a full commercial job, every surface is prepared and finished
+          properly.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        {#each services as service, i}
+          <div
+            use:reveal={i * 60}
+            class="rounded-xl border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md sm:p-6"
+          >
+            <div class="mb-3 h-1 w-8 rounded-full bg-brand sm:mb-4"></div>
+            <h3 class="text-lg">{service.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">{service.description}</p>
+          </div>
+        {/each}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="relative isolate overflow-x-clip py-16 lg:py-24">
+    <ScrollPanel from="right" class="bg-brand-light" />
+    <div class="mx-auto grid max-w-6xl px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch">
+      <div
+        class="aspect-[4/3] rounded-t-2xl bg-cover bg-center lg:aspect-auto lg:rounded-l-2xl lg:rounded-tr-none"
+        style="background-image: url('/images/ai-kitchen.jpg');"
+        role="img"
+        aria-label="Bright white kitchen with flowers on the bench"
+      ></div>
+      <div
+        id="quote"
+        class="rounded-b-2xl bg-white p-6 shadow-sm sm:p-10 lg:rounded-r-2xl lg:rounded-bl-none lg:p-14"
+        use:reveal
+      >
+        <p class="eyebrow">Free quotes</p>
+        <h2 class="mt-3 text-2xl sm:text-3xl">
+          Ready to <span class="italic text-brand-dark">make it shine</span>?
+        </h2>
+        <p class="mt-4 leading-relaxed text-gray-600">
+          Our quotes are free, detailed, and don't leave any hidden costs.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <a href="tel:+64276061821" class="btn-primary">
+            <MobilePhoneSolid class="h-5 w-5" />
+            Call 027 606 1821
+          </a>
+          <a
+            href="https://m.me/WhiteDoveMatamata"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            <img src={FB} width={20} height={20} alt="" class="h-5 w-5" />
+            Message on Messenger
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="relative isolate overflow-x-clip py-16 lg:py-24">
+    <ScrollPanel from="left" />
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <p class="eyebrow">Testimonials</p>
+      <h2 class="mt-3 text-2xl sm:text-3xl">What clients say</h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-3 lg:gap-6">
+        <TestimonialCard
+          highlight="Great paint job!"
+          quote="Great paint job. Top class!"
+          author="Helen R."
+        />
+        <TestimonialCard
+          highlight="Top class workmanship!"
+          quote="Top class workmanship of painting job on our new house!"
+          author="Keith Bell"
+          delay={80}
+        />
+        <TestimonialCard
+          highlight="Highly recommended!"
+          quote="Highly recommended! Painted the exterior and interior of our house."
+          author="Judith Peacock"
+          delay={160}
+        />
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-gray-200 bg-white">
   <div
-    class="mx-auto flex w-4/5 flex-col gap-10 lg:grid lg:grid-cols-3 lg:gap-2"
-    bind:this={testimonialRef}
+    class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-8 text-center text-sm text-gray-500 sm:flex-row sm:justify-between sm:px-6 sm:text-left"
   >
-    {#if intersecting.testimonial}
-      <TestimonialCard
-        highlight="Great Paint Job!"
-        quote="Great paint job. Top class!"
-        author="Helen R."
-      />
-      <TestimonialCard
-        highlight="Top Class Workmanship!"
-        quote="Top class workmanship of painting job on our new house!"
-        author="Keith Bell"
-      />
-      <TestimonialCard
-        highlight="Highly Recommended!"
-        quote="Highly recommended! Painted the exterior and interior of our house."
-        author="Judith Peacock"
-      />
-    {/if}
+    <p>© {new Date().getFullYear()} White Dove Professional Painting</p>
+    <a
+      href="http://ifoulidis.vercel.app"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hover:text-brand-dark"
+    >
+      Site by <span class="text-brand-dark">Isaiah Foulidis</span>
+    </a>
   </div>
-</section>
-
-<footer class="flex min-h-20 items-center justify-center bg-gray-50 text-black">
-  <a href="http://ifoulidis.vercel.app" target="_blank" rel="noopener noreferrer">
-    <h3 class="text-gray-500">Created by <span class="text-[#84c7dc]">Isaiah Foulidis</span></h3>
-  </a>
 </footer>
-
-<style>
-  .hero-img-1 {
-    max-height: 100%;
-    width: var(--size);
-  }
-</style>

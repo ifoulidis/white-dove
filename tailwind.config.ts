@@ -23,8 +23,16 @@ export default {
           800: '#CC4522',
           900: '#A5371B',
         },
-        brand: '#23b7e4',
+        brand: {
+          DEFAULT: '#23b7e4',
+          light: '#e8f7fc',
+          // AA contrast against white, for text and button fills
+          dark: '#0a7ea4',
+        },
         secondary: '#84c7dc',
+      },
+      fontFamily: {
+        serif: ['"Libre Baskerville"', 'Georgia', 'serif'],
       },
     },
   },
