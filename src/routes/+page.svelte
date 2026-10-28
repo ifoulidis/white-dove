@@ -184,13 +184,19 @@
     class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-8 text-center text-sm text-gray-500 sm:flex-row sm:justify-between sm:px-6 sm:text-left"
   >
     <p>© {new Date().getFullYear()} White Dove Professional Painting</p>
-    <a
-      href="http://ifoulidis.vercel.app"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="hover:text-brand-dark"
-    >
-      Site by <span class="text-brand-dark">Isaiah Foulidis</span>
-    </a>
+    <div class="flex items-center gap-4">
+      <a href="/admin/quote" rel="nofollow" data-sveltekit-reload class="hover:text-brand-dark">
+        Admin
+      </a>
+      <span aria-hidden="true" class="text-gray-300">·</span>
+      <a
+        href="http://ifoulidis.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-brand-dark"
+      >
+        Site by <span class="text-brand-dark">Isaiah Foulidis</span>
+      </a>
+    </div>
   </div>
 </footer>

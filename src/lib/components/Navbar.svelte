@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Logo from '$lib/images/new-logo.png'
+  import Logo from '$lib/images/logo-wordmark.png'
   import { PhoneSolid } from 'flowbite-svelte-icons'
 </script>
 
@@ -9,9 +9,9 @@
       <img
         src={Logo}
         alt="White Dove Professional Painting"
-        width={250}
-        height={125}
-        class="h-auto w-40 sm:w-48"
+        width={455}
+        height={138}
+        class="h-auto w-40 sm:w-52"
       />
     </a>
     <a
